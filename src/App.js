@@ -1,4 +1,5 @@
 // import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 
@@ -45,6 +46,7 @@ function App() {
       <h2>My First React</h2>
    
       <ComponentOne id={first}></ComponentOne>
+      <Counter></Counter>
       {persons.map(person => 
         <ul style={{background: "gray", width: "300px" , margin :"10px auto " }} ><li>{person}</li></ul>)
       }
@@ -53,6 +55,20 @@ function App() {
    
     </div>
   );
+}
+
+
+function Counter () {
+  const [count, setCount] = useState(2);
+  const increase = () => setCount(  count + 1)
+  const decrease = () => setCount(  count - 1)
+  return (
+          <div style={{border : "2px solid", padding :"3px", background : 'red'}}>
+            <h3>Counter : {count}</h3>
+            <button style={{marginRight :"10px"}} onClick={decrease}>Decrease</button>
+            <button  onClick={increase}>Increase</button>
+          </div>
+  )
 }
 
 function ComponentOne(props){
